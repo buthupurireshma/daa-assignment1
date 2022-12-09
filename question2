@@ -1,0 +1,24 @@
+def findplatform(arr, dep, n):
+    plat_needed = 1
+    res = 1
+
+    for i in range(n):
+        plat_needed = 1
+ 
+        for j in range(n):
+            if i != j:
+                if (arr[i] >= arr[j] and dep[j] >= arr[i]):
+                    plat_needed += 1
+        res = max(res, plat_needed)
+ 
+    return res
+def main():
+    arr = list(map(int, input().strip().split()))
+    dep = list(map(int, input().strip().split()))
+ 
+    n = len(arr)
+ 
+    print("{}".format(
+        findplatform(arr, dep, n)))
+if _name_ == '_main_':
+    main()
